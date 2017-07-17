@@ -164,12 +164,14 @@ namespace Algorithms
         {
             if (n <= 0) return false;
             List<int> isLucky = new List<int>();
-            for (int i = 0; i <= n; i++)
-                isLucky.Add(i);
+            for (int i = 0; 2*i + 1 <= n; i++)
+                isLucky.Add(2*i + 1);
             int k = isLucky.Count;
-            for (int i = 1; i <= k; i++)
+            
+            for (int i = 1; i < k; i++)
             {
-                for (int j = i + 1; j < k; j += i)
+                int jump = isLucky[i];
+                for (int j = jump - 1; j < k; j += jump - 1)
                 {
                     isLucky.RemoveRange(j, 1);
                     k--;

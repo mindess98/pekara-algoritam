@@ -15,7 +15,8 @@ namespace Algorithms
         public Form1()
         {
             InitializeComponent();
-
+            label1.AutoSize = true;
+            label2.AutoSize = true;
             comboBox1.Items.Add("Bubble Sort");
             comboBox1.Items.Add("Insertion Sort");
             comboBox1.Items.Add("Quick Sort");
@@ -29,6 +30,7 @@ namespace Algorithms
 
         private void button1_Click(object sender, EventArgs e)
         {
+            label1.Text = "";
              string[] s = textBox1.Text.Split(',');
              List<int> array = new List<int>();
              foreach(string t in s)
@@ -48,9 +50,9 @@ namespace Algorithms
 
             for (int i = 0; i < s.Length - 1; i++)
              {
-                 textBox1.Text += (s[i] + ","); 
+                 label1.Text += (s[i] + ","); 
              }
-             textBox1.Text += s[s.Length - 1];
+             label1.Text += s[s.Length - 1];
              
 
         }
@@ -68,7 +70,12 @@ namespace Algorithms
         private void button2_Click(object sender, EventArgs e)
         {
             int n = int.Parse(textBox2.Text);
-            textBox2.Text = myAlgorithms.AlgByID(comboBox2.SelectedIndex, n).ToString();
+            label2.Text = myAlgorithms.AlgByID(comboBox2.SelectedIndex, n).ToString();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
