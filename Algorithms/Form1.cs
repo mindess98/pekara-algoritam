@@ -19,6 +19,7 @@ namespace Algorithms
             comboBox1.Items.Add("Bubble Sort");
             comboBox1.Items.Add("Insertion Sort");
             comboBox1.Items.Add("Quick Sort");
+            comboBox1.Items.Add("Merge Sort");
             comboBox1.SelectedIndex = 0;
         }
 
