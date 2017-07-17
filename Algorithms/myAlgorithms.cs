@@ -119,7 +119,7 @@ namespace Algorithms
             myAlgorithms.delList[id](array);
         }
 
-  public static List<bool> SieveOfEratosthenes(int n)
+        public static List<bool> SieveOfEratosthenes(int n)
         {
             List<bool> isPrime = new List<bool>(n + 1);
             isPrime[0] = false;
@@ -175,8 +175,8 @@ namespace Algorithms
                     isLucky.RemoveRange(j, 1);
                 }
             }
-            foreach (int luckyNumber in isLucky)
-                if (luckyNumber == n) return true;
+            if (isLucky[isLucky.Count - 1] == n)
+                return true;
             return false;
         }
         public static int binarySearch(List<int> array, int key)
