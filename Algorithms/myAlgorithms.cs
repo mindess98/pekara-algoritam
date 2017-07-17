@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Algorithms
 {
-    public class myAlgorithms
+    static class myAlgorithms
     {
        
         public delegate void SortingDelegate(List<int> array);
@@ -117,6 +117,67 @@ namespace Algorithms
         public static void SortByID(int id, List<int> array)
         {
             myAlgorithms.delList[id](array);
+        }
+
+  public static List<bool> SieveOfEratosthenes(int n)
+        {
+            List<bool> isPrime = new List<bool>(n + 1);
+            isPrime[0] = false;
+            isPrime[1] = false;
+            for (int i = 2; i <= n; i++)
+            {
+                isPrime[i] = true;
+            }
+            for(int i = 2; i <= n; i++)
+            {
+                for(int j = i * 2; j <= Math.Sqrt(n); j += i)
+                {
+                    isPrime[j] = false;
+                }
+            }
+            return isPrime;
+        }
+        public static bool isHappy(int n)
+        {
+            int sum = 0;
+            List<int> numbersList = new List<int>();
+
+            while (true) 
+            {
+                while (n > 0)
+                {
+                    sum += (n % 10) * (n % 10);
+                    n /= 10;
+                }
+                if (sum == 1)
+                    return true;
+                else
+                {
+                    foreach (int number in numbersList)
+                        if (number == sum)
+                            return false;
+                    numbersList.Add(sum);
+                    n = sum;
+                    sum = 0;
+                }
+            }
+        }
+        public static bool isLucky(int n)
+        {
+            List<int> isLucky = new List<int>(n + 1);
+            isLucky[0] = -1;
+            for (int i = 1; i < isLucky.Count; i++)
+                isLucky[i] = i;
+            for(int i = 1; i <= n; i++)
+            {
+                for(int j = i + 1; j < isLucky.Count; j += i)
+                {
+                    isLucky.RemoveRange(j, 1);
+                }
+            }
+            foreach (int luckyNumber in isLucky)
+                if (luckyNumber == n) return true;
+            return false;
         }
         public static int binarySearch(List<int> array, int key)
         {
