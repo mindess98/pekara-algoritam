@@ -18,33 +18,36 @@ namespace Algorithms
 
             comboBox1.Items.Add("Bubble Sort");
             comboBox1.Items.Add("Insertion Sort");
+            comboBox1.Items.Add("Quick Sort");
+            comboBox1.SelectedIndex = 0;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string[] s = textBox1.Text.Split(',');
-            List<int> array = new List<int>();
-            foreach(string t in s)
-            {
-                array.Add(int.Parse(t));
-            }
+             string[] s = textBox1.Text.Split(',');
+             List<int> array = new List<int>();
+             foreach(string t in s)
+             {
+                 array.Add(int.Parse(t));
+             }
 
-            myAlgorithms.SortByID(comboBox1.SelectedIndex, array);
+             myAlgorithms.SortByID(comboBox1.SelectedIndex, array);
 
-           for(int i = 0; i < array.Count; i++)
-            {
-                s[i] = array[i].ToString();
-            }
+            for(int i = 0; i < array.Count; i++)
+             {
+                 s[i] = array[i].ToString();
+             }
 
 
-           textBox1.Text = null;
+            textBox1.Text = null;
 
-           for (int i = 0; i < s.Length - 1; i++)
-            {
-                textBox1.Text += (s[i] + ","); 
-            }
-            textBox1.Text += s[s.Length - 1];
+            for (int i = 0; i < s.Length - 1; i++)
+             {
+                 textBox1.Text += (s[i] + ","); 
+             }
+             textBox1.Text += s[s.Length - 1];
              
+
         }
 
         private void tabPage1_Click(object sender, EventArgs e)
