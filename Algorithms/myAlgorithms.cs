@@ -163,7 +163,7 @@ namespace Algorithms
         public static bool isHappy(int n)
         {
             int sum = 0;
-            List<int> numbersList = new List<int>();
+            HashSet<int> sumsHistory = new HashSet<int>();
 
             while (true)
             {
@@ -178,10 +178,9 @@ namespace Algorithms
                     return true;
                 else
                 {
-                    foreach(int number in numbersList)
-                        if (number == sum)
-                            return false;
-                    numbersList.Add(sum);
+                    if (sumsHistory.Contains(sum))
+                        return false;
+                    sumsHistory.Add(sum);
                     n = sum;
                     sum = 0;
                 }

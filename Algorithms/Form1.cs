@@ -44,7 +44,6 @@ namespace Algorithms
                  s[i] = array[i].ToString();
              }
 
-
             textBox1.Text = null;
 
             for (int i = 0; i < s.Length - 1; i++)
