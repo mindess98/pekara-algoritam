@@ -48,6 +48,33 @@ namespace Algorithms
         {
             myAlgorithms.delList[id](array);
         }
+        public static int binarySearch(List<int> array, int key)
+        {
+
+            int left = 0;
+            int right = array.Count - 1;
+            int mid;
+
+            while (left < right)
+            {
+                mid = (left + right) / 2;
+                if (array[mid] == key)
+                {
+                    return mid;
+                }
+                if(array[mid] > key)
+                {
+                    left = mid + 1; 
+                }
+                if(array[mid] < key)
+                {
+                    right = mid - 1;
+                }
+            }
+
+            return -1;
+        }
+
 
         public static List<SortingDelegate> delList = new List<SortingDelegate> { BubbleSort, InsertionSort };
 
