@@ -10,6 +10,7 @@ namespace Algorithms
     {
        
         public delegate void SortingDelegate(List<int> array);
+        public delegate int SearchingDelegate(List<int> array, int key);
         public static void BubbleSort(List<int> array)
         {
             for(int i = 0; i < array.Count; i++)
@@ -117,8 +118,43 @@ namespace Algorithms
         {
             myAlgorithms.delList[id](array);
         }
+        public static int binarySearch(List<int> array, int key)
+        {
 
-        public static List<SortingDelegate> delList = new List<SortingDelegate> { BubbleSort, InsertionSort, QuickSort, MergeSort };
+            int left = 0;
+            int right = array.Count - 1;
+            int mid;
 
+            while (left < right)
+            {
+                mid = (left + right) / 2;
+                if (array[mid] == key)
+                {
+                    return mid;
+                }
+                if(array[mid] > key)
+                {
+                    left = mid + 1; 
+                }
+                if(array[mid] < key)
+                {
+                    right = mid - 1;
+                }
+            }
+
+            return -1;
+        }
+        public static int linearSearch(List<int> array, int key)
+        {
+            for(int i = 0; i < array.Count; i++)
+            {
+                if (array[i] == key)
+                    return i;
+            }
+            return -1;
+        }
+
+        private static List<SortingDelegate> delList = new List<SortingDelegate> { BubbleSort, InsertionSort, QuickSort, MergeSort };
+        private static List<SearchingDelegate> serList = new List<SearchingDelegate> { linearSearch, binarySearch };
     }
 }
