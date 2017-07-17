@@ -30,7 +30,6 @@ namespace Algorithms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            label1.Text = "";
              string[] s = textBox1.Text.Split(',');
              List<int> array = new List<int>();
              foreach(string t in s)
@@ -76,6 +75,28 @@ namespace Algorithms
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            string[] s = textBox3.Text.Split(',');
+            List<int> array = new List<int>();
+            foreach (string t in s)
+            {
+                array.Add(int.Parse(t));
+            }
+
+            int value = int.Parse(textBox4.Text);
+
+            myAlgorithms.insert(array, value);
+
+            textBox3.Text = null;
+
+            for (int i = 0; i < array.Count - 1; i++)
+            {
+                textBox3.Text += array[i].ToString() + ",";
+            }
+            textBox3.Text += array[array.Count - 1].ToString();
         }
     }
 }

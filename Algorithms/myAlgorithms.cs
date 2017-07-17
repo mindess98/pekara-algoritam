@@ -116,6 +116,31 @@ namespace Algorithms
             for (k = 0, i = left; i <= right; k++, i++)
                 array[i] = m[k];
         }
+        /// <summary>
+        /// inserts *value* into non-ascending List *array*
+        /// </summary>
+        /// <param name="array"></param>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static int insert(List<int> array, int value)
+        {
+            int i;
+            for(i = 0; i < array.Count; i++)
+            {
+                if(array[i] < value)
+                {
+                    array.Add(array[array.Count - 1]);
+                    for(int j = array.Count - 2; j >= i + 1; j--)
+                    {
+                        array[j] = array[j - 1];
+                    }
+                    array[i] = value;
+                    return i;
+                }   
+            }
+            array.Add(value);
+            return i;
+        }
 
         public static bool isPrime(int n)
         {
@@ -142,16 +167,18 @@ namespace Algorithms
 
             while (true)
             {
+                int digit;
                 while (n > 0)
                 {
-                    sum += (n % 10) * (n % 10);
+                    digit = n % 10;
+                    sum += digit * digit;
                     n /= 10;
                 }
                 if (sum == 1)
                     return true;
                 else
                 {
-                    foreach (int number in numbersList)
+                    foreach(int number in numbersList)
                         if (number == sum)
                             return false;
                     numbersList.Add(sum);
@@ -160,6 +187,7 @@ namespace Algorithms
                 }
             }
         }
+        
         public static bool isLucky(int n)
         {
             if (n <= 0) return false;
