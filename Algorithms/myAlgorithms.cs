@@ -74,6 +74,15 @@ namespace Algorithms
 
             return -1;
         }
+        public static int linearSearch(List<int> array, int key)
+        {
+            for(int i = 0; i < array.Count; i++)
+            {
+                if (array[i] == key)
+                    return i;
+            }
+            return -1;
+        }
 
 
         public static List<SortingDelegate> delList = new List<SortingDelegate> { BubbleSort, InsertionSort };
