@@ -7,3 +7,12 @@ E:\Csharp\Projects\Algorithms\Algorithms\obj\Debug\Algorithms.Properties.Resourc
 E:\Csharp\Projects\Algorithms\Algorithms\obj\Debug\Algorithms.csproj.GenerateResource.Cache
 E:\Csharp\Projects\Algorithms\Algorithms\obj\Debug\Algorithms.exe
 E:\Csharp\Projects\Algorithms\Algorithms\obj\Debug\Algorithms.pdb
+E:\Csharp\Projects\Algorithms\algorithm\Algorithms\bin\Debug\Algorithms.exe.config
+E:\Csharp\Projects\Algorithms\algorithm\Algorithms\obj\Debug\Algorithms.exe
+E:\Csharp\Projects\Algorithms\algorithm\Algorithms\obj\Debug\Algorithms.pdb
+E:\Csharp\Projects\Algorithms\algorithm\Algorithms\bin\Debug\Algorithms.exe
+E:\Csharp\Projects\Algorithms\algorithm\Algorithms\bin\Debug\Algorithms.pdb
+E:\Csharp\Projects\Algorithms\algorithm\Algorithms\obj\Debug\Algorithms.csprojResolveAssemblyReference.cache
+E:\Csharp\Projects\Algorithms\algorithm\Algorithms\obj\Debug\Algorithms.Form1.resources
+E:\Csharp\Projects\Algorithms\algorithm\Algorithms\obj\Debug\Algorithms.Properties.Resources.resources
+E:\Csharp\Projects\Algorithms\algorithm\Algorithms\obj\Debug\Algorithms.csproj.GenerateResource.Cache
