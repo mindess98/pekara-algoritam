@@ -10,6 +10,7 @@ namespace Algorithms
     {
        
         public delegate void SortingDelegate(List<int> array);
+        public delegate int SearchingDelegate(List<int> array, int key);
         public static void BubbleSort(List<int> array)
         {
             for(int i = 0; i < array.Count; i++)
@@ -85,7 +86,7 @@ namespace Algorithms
         }
 
 
-        public static List<SortingDelegate> delList = new List<SortingDelegate> { BubbleSort, InsertionSort };
-
+        private static List<SortingDelegate> delList = new List<SortingDelegate> { BubbleSort, InsertionSort };
+        private static List<SearchingDelegate> serList = new List<SearchingDelegate> { linearSearch, binarySearch };
     }
 }
