@@ -15,6 +15,9 @@ namespace Algorithms
         public Form1()
         {
             InitializeComponent();
+
+            comboBox1.Items.Add("Bubble Sort");
+            comboBox1.Items.Add("Insertion Sort");
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -26,7 +29,7 @@ namespace Algorithms
                 array.Add(int.Parse(t));
             }
 
-            myAlgorithms.BubbleSort(array);
+            myAlgorithms.SortByID(comboBox1.SelectedIndex, array);
 
            for(int i = 0; i < array.Count; i++)
             {
@@ -36,11 +39,22 @@ namespace Algorithms
 
            textBox1.Text = null;
 
-           for (int i = 0; i < s.Length; i++)
+           for (int i = 0; i < s.Length - 1; i++)
             {
-                textBox1.Text += (s[i] + " "); 
+                textBox1.Text += (s[i] + ","); 
             }
+            textBox1.Text += s[s.Length - 1];
              
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
