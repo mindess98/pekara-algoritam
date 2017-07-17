@@ -11,6 +11,8 @@ namespace Algorithms
        
         public delegate void SortingDelegate(List<int> array);
         public delegate int SearchingDelegate(List<int> array, int key);
+        public delegate bool BooleanDelegate(int n);
+
         public static void BubbleSort(List<int> array)
         {
             for(int i = 0; i < array.Count; i++)
@@ -114,35 +116,31 @@ namespace Algorithms
             for (k = 0, i = left; i <= right; k++, i++)
                 array[i] = m[k];
         }
-        public static void SortByID(int id, List<int> array)
-        {
-            myAlgorithms.delList[id](array);
-        }
 
-        public static List<bool> SieveOfEratosthenes(int n)
+        public static bool isPrime(int n)
         {
-            List<bool> isPrime = new List<bool>(n + 1);
-            isPrime[0] = false;
-            isPrime[1] = false;
+            List<bool> isPrime = new List<bool>();
+            isPrime.Add(false);
+            isPrime.Add(false);
             for (int i = 2; i <= n; i++)
             {
-                isPrime[i] = true;
+                isPrime.Add(true);
             }
-            for(int i = 2; i <= n; i++)
+            for (int i = 2; i <= n; i++)
             {
-                for(int j = i * 2; j <= Math.Sqrt(n); j += i)
+                for (int j = i * 2; j <= n; j += i)
                 {
                     isPrime[j] = false;
                 }
             }
-            return isPrime;
+            return isPrime[n];
         }
         public static bool isHappy(int n)
         {
             int sum = 0;
             List<int> numbersList = new List<int>();
 
-            while (true) 
+            while (true)
             {
                 while (n > 0)
                 {
@@ -164,21 +162,33 @@ namespace Algorithms
         }
         public static bool isLucky(int n)
         {
-            List<int> isLucky = new List<int>(n + 1);
-            isLucky[0] = -1;
-            for (int i = 1; i < isLucky.Count; i++)
-                isLucky[i] = i;
-            for(int i = 1; i <= n; i++)
+            if (n <= 0) return false;
+            List<int> isLucky = new List<int>();
+            for (int i = 0; i <= n; i++)
+                isLucky.Add(i);
+            int k = isLucky.Count;
+            for (int i = 1; i <= k; i++)
             {
-                for(int j = i + 1; j < isLucky.Count; j += i)
+                for (int j = i + 1; j < k; j += i)
                 {
                     isLucky.RemoveRange(j, 1);
+                    k--;
                 }
             }
             if (isLucky[isLucky.Count - 1] == n)
                 return true;
             return false;
         }
+
+        public static void SortByID(int id, List<int> array)
+        {
+            myAlgorithms.delList[id](array);
+        }
+        public static bool AlgByID(int id, int n)
+        {
+            return booList[id](n);
+        }
+
         public static int binarySearch(List<int> array, int key)
         {
 
@@ -217,5 +227,6 @@ namespace Algorithms
 
         private static List<SortingDelegate> delList = new List<SortingDelegate> { BubbleSort, InsertionSort, QuickSort, MergeSort };
         private static List<SearchingDelegate> serList = new List<SearchingDelegate> { linearSearch, binarySearch };
+        private static List<BooleanDelegate> booList = new List<BooleanDelegate> { isPrime, isHappy, isLucky };
     }
 }

@@ -21,6 +21,10 @@ namespace Algorithms
             comboBox1.Items.Add("Quick Sort");
             comboBox1.Items.Add("Merge Sort");
             comboBox1.SelectedIndex = 0;
+            comboBox2.Items.Add("isPrime");
+            comboBox2.Items.Add("isHappy");
+            comboBox2.Items.Add("isLucky");
+            comboBox2.SelectedIndex = 0;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -59,6 +63,12 @@ namespace Algorithms
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            int n = int.Parse(textBox2.Text);
+            textBox2.Text = myAlgorithms.AlgByID(comboBox2.SelectedIndex, n).ToString();
         }
     }
 }
